@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "scrumpoker-gg": {
+      "hosting": {
+        "scrum-gg": [
+          "scrumpoker-gg"
+        ]
+      }
+    }
+  }
+}

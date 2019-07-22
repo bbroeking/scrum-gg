@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="top-half">
+      <mat-grid-list cols="4" rowHeight="100px" class="top-bar">
+        <mat-grid-tile [colspan]="1">
+          <div class="input-button">
+            <form class="inline">
+              <mat-form-field appearance="outline">
+                <input #name matInput placeholder="Name" />
+              </mat-form-field>
+            </form>
+            <div>
+              <button
+                class="inline"
+                mat-raised-button
+                color="primary"
+                (click)="setVoter(name.value)"
+              >
+                Add Name
+              </button>
+            </div>
+          </div>
+        </mat-grid-tile>
+        <mat-grid-tile class="left-align" [colspan]="2">
+          <div class="set-left">
+            <h1>Voting On: {{ sessionName }}</h1>
+          </div>
+        </mat-grid-tile>
+        <mat-grid-tile [colspan]="1">
+          <div class="input-button">
+            <form class="example-form inline">
+              <mat-form-field appearance="outline" class="example-full-width">
+                <input #story matInput placeholder="Story" />
+              </mat-form-field>
+            </form>
+            <div>
+              <button
+                class="inline"
+                mat-raised-button
+                color="primary"
+                (click)="setSession(story.value)"
+              >
+                Add Story
+              </button>
+            </div>
+          </div>
+        </mat-grid-tile>
+      </mat-grid-list>
+    </div>
+    <div class="bottom-half">
+      <mat-grid-list cols="4" rowHeight="100px" class="vote-group">
+        <mat-grid-tile *ngFor="let item of payload" class="voter-vote">
+          <h1 class="inline primary">
+            {{ item.name }}:
+            <div class="inline" *ngIf="showVote">{{ item.vote }}</div>
+          </h1>
+          <div class="close">
+            <button mat-icon-button (click)="removeUser(item)">
+              <mat-icon>close</mat-icon>
+            </button>
+          </div>
+        </mat-grid-tile>
+      </mat-grid-list>
+
+      <div class="center-content">
+        <div class="example-button-row">
+          <div class="votes">
+            <button
+              id="votes"
+              mat-raised-button
+              color="primary"
+              (click)="clearVotes()"
+            >
+              Clear Votes
+            </button>
+          </div>
+          <div class="votes">
+            <button
+              id="votes"
+              mat-raised-button
+              color="primary"
+              (click)="showVotes()"
+            >
+              Show Votes
+            </button>
+          </div>
+          <div class="votes">
+            <button
+              id="votes"
+              mat-raised-button
+              color="primary"
+              (click)="copyLink()"
+            >
+              Copy Link
+            </button>
+          </div>
+        </div>
+      </div>
+      <mat-grid-list cols="4" rowHeight="200px">
+        <mat-grid-tile *ngFor="let fib of fibonacci">
+          <button
+            class="voter-card"
+            mat-button
+            color="accent"
+            (click)="updateVote(fib)"
+          >
+            {{ fib }}
+          </button>
+        </mat-grid-tile>
+      </mat-grid-list>
+    </div>
+  </body>
+</html>

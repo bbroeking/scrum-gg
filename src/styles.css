@@ -1,0 +1,33 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import "@angular/material/prebuilt-themes/pink-bluegrey.css";
+
+:root {
+  --background-blackboard: #565656;
+  --text-grain: #d7cec7;
+  --tan: #c09f80;
+}
+html {
+  background-color: var(--background-blackboard);
+}
+* {
+  margin: 0;
+  padding: 0;
+}
+/* 
+body {
+  background-color: #d3d3d3;
+} */
+
+/* @import "~@angular/material/theming";
+
+@include mat-core();
+$custom-theme-primary: mat-palette($mat-grey, 900);
+$custom-theme-accent: mat-palette($mat-pink, A200, A100, A400);
+$custom-theme-warn: mat-palette($mat-red);
+$custom-theme: mat-light-theme(
+  $custom-theme-primary,
+  $custom-theme-accent,
+  $custom-theme-warn
+);
+@include angular-material-theme($custom-theme); */
